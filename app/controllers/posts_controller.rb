@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     @post=Post.new(post_params)
     if @post.save
       redirect_to post_path(@post.id)
+      # redirect_to @post
     else
       render new_post_path
     end
@@ -25,6 +26,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :content)
   end
 end
