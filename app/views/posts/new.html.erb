@@ -1,32 +1,4 @@
 <div id="page_wrapper">
   <h1>Make something </h1>
-  <%= form_for :post, :url => posts_path do |f| %>
-      <% if @post.errors.any? %>
-          <div id="errors">
-            <h2><%= pluralize(@post.errors.count, "error") %> prevent this post from being saved!</h2>
-            <ul>
-              <% @post.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-      <% end %>
-      <p>
-        <%= f.label :title %>
-
-      <p><%= f.text_field :title %></p>
-      </p>
-
-      <p>
-        <%= f.label :content %>
-
-      <p>
-        <%= f.text_area :content %>
-      </p>
-      </p>
-
-      <p>
-        <%= f.submit %>
-      </p>
-  <% end %>
+    <%= render 'form' %>
 </div>
