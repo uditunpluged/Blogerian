@@ -11,4 +11,11 @@
   <p class="body">
     <%= simple_format @post.content %>
   </p>
+  <div class="comments">
+    <h2><%= @post.comments.count %> Comments </h2>
+    <hr>
+    <%= render @post.comments %>
+    <h3>Join Discussion:</h3>
+    <%= render 'comments/form' %>
+  </div>
 </div>
