@@ -5,12 +5,17 @@
 
 
   <p class="date">
-    Submitted <%= time_ago_in_words(@post.created_at) %> ago | <%=link_to 'Fix this Post',edit_post_path %> | <%=link_to 'Trash this Post',post_path,:method => :delete,:data=>{confirm: 'Are you sure'} %>
+    Submitted <%= time_ago_in_words(@post.created_at) %> ago |
+    <% if user_signed_in? %>
+        <%= link_to 'Fix this Post', edit_post_path %>
+        | <%= link_to 'Trash this Post', post_path, :method => :delete, :data => {confirm: 'Are you sure'} %>
+    <% end %>
   </p>
 
   <p class="body">
     <%= simple_format @post.content %>
   </p>
+
   <div class="comments">
     <h2><%= @post.comments.count %> Comments </h2>
     <hr>
