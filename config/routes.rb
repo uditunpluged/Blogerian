@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   end
   root 'posts#index'
   get '/about', to:'pages#about'
+
+  scope 'v1' do
+    get 'posts' => 'v1/posts#index'
+
+    post 'users/sign_in' => 'v1/users#login'
+  end
 end
